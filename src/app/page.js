@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Home from './Hero/page';
 import LocomotiveScroll from 'locomotive-scroll';
 import Cursor from './component/Cursor';
+import { Welcoming } from './Welcoming';
 
 export default function Page() {
 
@@ -21,6 +22,7 @@ export default function Page() {
             <Cursor />
             <div>
                 <Home />
+                <Welcoming/>
             </div>
         </div>
     );
