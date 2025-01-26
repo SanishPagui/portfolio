@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'motion/react';
 import gsap from 'gsap';
 
 export const Navbar = () => {
@@ -15,9 +14,11 @@ export const Navbar = () => {
 
   const handleMouseEnter = () => {
     gsap.to('.fade-letter', {
+      scaleY: 0,
+      transfoemOrigin: 'center',
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)',
-      opacity: 0,
       duration: 0.5,
+      ease: 'power2.out',
     });
 
     gsap.to('.txt-1 .letter:first-child', {
@@ -35,21 +36,56 @@ export const Navbar = () => {
     });
   };
 
+  const handleUnderlineEnter = (e) => {
+    const underline = e.target.querySelector('.underline');
+    if (underline) {
+      gsap.to(underline, {
+        scaleX: 1,
+        transformOrigin: 'bottom left',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+        startAt: {
+          scaleX: 0,
+          transformOrigin: 'bottom left',
+        },
+      });
+    }
+  };
+
+  const handleUnderlineLeave = (e) => {
+    const underline = e.target.querySelector('.underline');
+    if (underline) {
+      gsap.to(underline, {
+        scaleX: 0,
+        transformOrigin: 'bottom left',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        startAt: {
+          scaleX: 1,
+          transformOrigin: 'bottom right',
+        },
+      });
+    }
+  };
+
   const handleMouseLeave = () => {
     gsap.to('.fade-letter', {
+      scaleY: 1,
+      transfoemOrigin: 'center',
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-      opacity: 1,
       duration: 0.5,
+      ease: 'power2.out',
+      delay: .45,
     });
 
-    
     gsap.to('.txt-2 .letter:first-child', {
       transform: 'translateX(0%)', 
       duration: 1,
       ease: 'power2.out',
     });
 
-    
     gsap.to('.txt-1 .letter:first-child', {
       transform: 'translateX(0%)', 
       duration: 1,
@@ -60,7 +96,7 @@ export const Navbar = () => {
   return (
     <div className='fixed w-full h-32 flex justify-between items-center'>
       <div className=''>
-        <h1 className='text-5xl ml-10 flex font-[Teko]  ' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <h1 className='text-5xl ml-10 flex font-[Teko]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className='txt-1 flex font-bold tracking-tight'>
             <div className='letter '>S</div>
             <div className='letter fade-letter'>A</div>
@@ -79,10 +115,19 @@ export const Navbar = () => {
         </h1>
       </div>
       <div>
-        <ul className='flex space-x-7 text-2xl'>
-          <Link href={'/'}><li className='hover:underline'>Home</li></Link>
-          <Link href={'/About'}><li className='hover:underline'>About</li></Link>
-          <Link href={'#'}><li className='hover:underline'>Contact</li></Link>
+        <ul className='flex space-x-9 text-2xl mr-16'>
+          <Link href={'/About'} onMouseEnter={handleUnderlineEnter} onMouseLeave={handleUnderlineLeave}>
+            <li className='relative flex flex-col' >
+              About
+              <span className='underline absolute bottom-0 left-0 w-full h-0.5 bg-black scale-x-0 opacity-0'></span>
+            </li>
+          </Link>
+          <Link href={'#'} onMouseEnter={handleUnderlineEnter} onMouseLeave={handleUnderlineLeave}>
+            <li className='relative flex flex-col ' >
+              Contact
+              <span className='underline absolute bottom-0 left-0 w-full h-0.5 bg-black scale-x-0 opacity-0'></span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Home from './Home/page';
+import Home from './Hero/page';
 import LocomotiveScroll from 'locomotive-scroll';
 import Cursor from './component/Cursor';
 
