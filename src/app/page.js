@@ -8,16 +8,20 @@ import Cursor from './component/Cursor';
 export default function Page() {
 
     useEffect(() => {
-        const locomotiveScroll = new LocomotiveScroll();
-        return () => {
-            locomotiveScroll.destroy(); 
-        };
+        if (typeof window !== "undefined") { 
+            const locomotiveScroll = new LocomotiveScroll();
+            return () => {
+                locomotiveScroll.destroy();
+            };
+        }
     }, []);
 
     return (
-        <div className='w-full h-full view'>
+        <div className='w-full h-full'>
             <Cursor />
-            <Home />
+            <div>
+                <Home />
+            </div>
         </div>
     );
 }
