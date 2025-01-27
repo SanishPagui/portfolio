@@ -25,7 +25,7 @@ export default function page () {
               <div className='pt-36 text-[350px]'>I</div>
             </div> */}
           </div>
-          <div className='w-full h-[500] flex '>
+          <div className='w-full h-[500px] flex '>
             <div className=' w-full text-wrap flex flex-col  items-center justify-center mb-8 pl-9 text-4xl'>
               <div className='flex w-full '>
               Hello👋
