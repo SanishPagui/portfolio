@@ -8,7 +8,7 @@ export default function page () {
     <div className='w-full h-screen'>
         <Navbar />
         <div className='pt-32 font-[Teko]'>
-          <div className=' w-full h-[500] flex items-strech justify-start pl-5'>
+          <div className=' w-full h-[500px] flex items-strech justify-start pl-5'>
             <div className='flex h-full tracking-tighter -space-x-5 items-center pt-32'> 
               <div className=' text-[500px]'>S</div>
               <div className=' text-[500px]'>A</div>
