@@ -94,7 +94,6 @@ export const Navbar = () => {
       ease: 'power2.out',
     });
   };
-
   return (
     <div className='fixed w-full h-32 flex justify-between items-center'>
       <div className=''>
