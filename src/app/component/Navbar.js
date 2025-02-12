@@ -95,10 +95,10 @@ export const Navbar = () => {
     });
   };
   return (
-    <div className='fixed w-full h-32 flex justify-between items-center'>
+    <div className='fixed w-full h-[20vh] flex justify-between items-center'>
       <div className=''>
-        <h1 className='text-5xl ml-10 flex font-[Teko]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <div className='txt-1 flex font-bold tracking-tight'>
+        <h1 className='text-6xl lg:text-5xl ml-10 flex font-[Teko]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <div className='txt-1 flex font-bold lg:tracking-tight'>
             <div className='letter '>S</div>
             <div className='letter fade-letter'>A</div>
             <div className='letter fade-letter'>N</div>
@@ -106,7 +106,7 @@ export const Navbar = () => {
             <div className='letter fade-letter'>S</div>
             <div className='letter fade-letter'>H</div>
           </div>
-          <div className='txt-2 flex pl-1 font-bold tracking-tighter'>
+          <div className='txt-2 flex pl-2 font-bold lg:tracking-tight'>
             <div className='letter '>P</div>
             <div className='letter fade-letter'>A</div>
             <div className='letter fade-letter'>G</div>
@@ -116,7 +116,7 @@ export const Navbar = () => {
         </h1>
       </div>
       <div>
-        <ul className='flex space-x-9 text-2xl mr-16'>
+        <ul className='flex space-x-9 font-semibold text-4xl lg:text-4xl mr-16 font-[Teko]'>
           <Link href={'/About'} onMouseEnter={handleUnderlineEnter} onMouseLeave={handleUnderlineLeave}>
             <li className='relative flex flex-col' >
               About

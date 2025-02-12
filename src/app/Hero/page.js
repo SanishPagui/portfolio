@@ -7,41 +7,36 @@ export default function page () {
   return (
     <div className='w-full h-screen'>
         <Navbar />
-        <div className='pt-32 font-[Teko]'>
+        <div className='lg:pt-32 font-[Teko] px-4'>
           <div className=' w-full h-[500px] flex items-strech justify-start pl-5'>
-            <div className='flex h-full tracking-tighter -space-x-5 items-center pt-32'> 
-              <div className=' text-[500px]'>S</div>
-              <div className=' text-[500px]'>A</div>
-              <div className=' text-[500px]'>N</div>
-              <div className=' text-[500px]'>I</div>
-              <div className=' text-[500px]'>S</div>
-              <div className=' text-[500px]'>H</div>
+            <div className='flex h-full tracking-tight -space-x-2 lg:-space-x-5 items-center lg:pt-32'> 
+              <div className='text-[200px] lg:text-[500px]'>S</div>
+              <div className='text-[200px] lg:text-[500px]'>A</div>
+              <div className='text-[200px] lg:text-[500px]'>N</div>
+              <div className='text-[200px] lg:text-[500px]'>I</div>
+              <div className='text-[200px] lg:text-[500px]'>S</div>
+              <div className='text-[200px] lg:text-[500px]'>H</div>
+              <div className='text-[200px] lg:text-[500px]'>'</div>
+              <div className='text-[200px] lg:text-[500px]'>S</div>
             </div>
-            {/* <div className='flex pl-5 h-full tracking-tighter'>
-              <div className='pt-36 text-[350px]'>P</div>
-              <div className='pt-36 text-[350px]'>A</div>
-              <div className='pt-36 text-[350px]'>G</div>
-              <div className='pt-36 text-[350px]'>U</div>
-              <div className='pt-36 text-[350px]'>I</div>
-            </div> */}
           </div>
-          <div className='w-full h-[500px] flex '>
-            <div className=' w-full text-wrap flex flex-col  items-center justify-center mb-8 pl-9 text-4xl'>
-              <div className='flex w-full '>
-              Hello👋
+          <div className='w-full h-[500px] flex flex-col md:flex-row'>
+            <div className='order-1 md:order-0 w-[150vw] lg:w-full text-wrap flex flex-col  items-center justify-center  mb-8 pl-9 text-7xl md:text-4xl'>
+              <div className='flex flex-col w-full '>
+              <h1>Hello👋</h1>
+              <h1>I'm a front-end developer working in Goa, India </h1>
               </div>
-              I'm a front-end developer working in Goa, India 
             </div>
-            <div className='pl-[300px] flex justify-center tracking-tighter leading-none -space-x-5'>
-              <div className='-mt-12 text-[500px]'>P</div>
-              <div className='-mt-12 text-[500px]'>O</div>
-              <div className='-mt-12 text-[500px]'>R</div>
-              <div className='-mt-12 text-[500px]'>T</div>
-              <div className='-mt-12 text-[500px]'>F</div>
-              <div className='-mt-12 text-[500px]'>O</div>
-              <div className='-mt-12 text-[500px]'>L</div>
-              <div className='-mt-12 text-[500px]'>I</div>
-              <div className='-mt-12 text-[500px]'>O</div>
+            <div className='pl-[30vh] lg:pl-[300px] -mt-36 flex justify-center tracking-tight -space-x-2 lg:leading-none lg:-space-x-5'>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>P</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>O</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>R</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>T</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>F</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>O</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>L</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>I</div>
+              <div className='lg:-mt-12 text-[200px] lg:text-[500px]'>O</div>
             </div>
           </div>
         </div>
