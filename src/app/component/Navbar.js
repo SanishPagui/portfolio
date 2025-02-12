@@ -95,7 +95,7 @@ export const Navbar = () => {
     });
   };
   return (
-    <div className='fixed w-full h-[20vh] flex justify-between items-center'>
+    <div className='fixed w-full h-[20vh] lg:h-[10vh] flex justify-between items-center'>
       <div className=''>
         <h1 className='text-6xl lg:text-5xl ml-10 flex font-[Teko]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className='txt-1 flex font-bold lg:tracking-tight'>
