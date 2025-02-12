@@ -18,9 +18,9 @@ export const Welcoming = () => {
     const carouselText = "Welcome To My Website"
 
     return (
-        <div className='w-full h-screen  overflow-hidden'>
+        <div className='w-full h-full overflow-hidden'>
             <div className='bg-black h-1 w-full'></div>
-            <div className='w-full h-[8vh] flex overflow-hidden relative'>
+            <div className='w-full h-[8vh] flex overflow-hidden'>
                 <div className='carousel-container flex items-center space-x-14'>
                     {[...Array(15)].map((_, index) => (
                         <h1 

@@ -5,7 +5,7 @@ import { Navbar } from '../component/Navbar'
 
 export default function page () {
   return (
-    <div className='w-full h-screen'>
+    <div className='w-full h-full mt-8'>
         <Navbar />
         <div className='sm:pt-36 lg:pt-32 font-[Teko] px-4'>
           <div className=' w-full h-[500px] flex items-strech justify-start pl-5'>
