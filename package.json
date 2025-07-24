@@ -9,10 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.5.1",
+    "@react-three/fiber": "^9.2.0",
+    "@types/three": "^0.178.1",
     "gsap": "^3.13.0",
+    "locomotive-scroll": "^5.0.0-beta.21",
+    "lucide-react": "^0.525.0",
     "next": "15.4.1",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "tempus": "^1.0.0-dev.12",
+    "three": "^0.178.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

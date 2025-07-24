@@ -34,7 +34,7 @@ const Home = () => {
     }
 
   return (
-    <div ref={homeRef} className='h-screen w-full '>
+    <div ref={homeRef} className='h-screen w-full z-0'>
         <div className='flex w-full h-full items-center justify-center text-9xl'>
             {displayLetter('SANISH PAGUI', 'letter')}
         </div>
