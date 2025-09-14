@@ -177,14 +177,14 @@ export default function Home() {
                         GitHub
                       </a>
                       <a
-                        href="https://linkedin.com/in/sanishpagui"
+                        href="https://www.linkedin.com/in/sanish-pagui-529789307?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                         className="text-muted-foreground hover:text-primary transition-colors cursor-hover"
                         aria-label="LinkedIn"
                       >
                         LinkedIn
                       </a>
                       <a
-                        href="https://twitter.com/sanishpagui"
+                        href="https://x.com/Sanish24144248"
                         className="text-muted-foreground hover:text-primary transition-colors cursor-hover"
                         aria-label="Twitter"
                       >
