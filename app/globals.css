@@ -1,0 +1,300 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match design brief */
+  --background: oklch(1 0 0); /* #ffffff */
+  --foreground: oklch(0.556 0.014 258.338); /* #475569 */
+  --card: oklch(0.984 0.013 180.695); /* #ecfeff */
+  --card-foreground: oklch(0.314 0.08 200.096); /* #164e63 */
+  --popover: oklch(1 0 0); /* #ffffff */
+  --popover-foreground: oklch(0.556 0.014 258.338); /* #475569 */
+  --primary: oklch(0.314 0.08 200.096); /* #164e63 */
+  --primary-foreground: oklch(1 0 0); /* #ffffff */
+  --secondary: oklch(0.696 0.142 162.48); /* #10b981 */
+  --secondary-foreground: oklch(1 0 0); /* #ffffff */
+  --muted: oklch(0.97 0.013 220.15); /* #f1f5f9 */
+  --muted-foreground: oklch(0.556 0.014 258.338); /* #475569 */
+  --accent: oklch(0.696 0.142 162.48); /* #10b981 */
+  --accent-foreground: oklch(1 0 0); /* #ffffff */
+  --destructive: oklch(0.633 0.179 70.67); /* #d97706 */
+  --destructive-foreground: oklch(1 0 0); /* #ffffff */
+  --border: oklch(0.984 0.013 180.695); /* #ecfeff */
+  --input: oklch(1 0 0); /* #ffffff */
+  --ring: oklch(0.696 0.142 162.48); /* #10b981 */
+  --chart-1: oklch(0.314 0.08 200.096); /* #164e63 */
+  --chart-2: oklch(0.696 0.142 162.48); /* #10b981 */
+  --chart-3: oklch(0.633 0.179 70.67); /* #d97706 */
+  --chart-4: oklch(0.984 0.013 180.695); /* #ecfeff */
+  --chart-5: oklch(1 0 0); /* #ffffff */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.984 0.013 180.695); /* #ecfeff */
+  --sidebar-foreground: oklch(0.556 0.014 258.338); /* #475569 */
+  --sidebar-primary: oklch(0.314 0.08 200.096); /* #164e63 */
+  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-accent: oklch(0.696 0.142 162.48); /* #10b981 */
+  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-border: oklch(0.633 0.179 70.67); /* #d97706 */
+  --sidebar-ring: oklch(0.696 0.142 162.48); /* #10b981 */
+}
+
+.dark {
+  /* Updated dark mode tokens to complement the new color scheme */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.696 0.142 162.48); /* #10b981 */
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.314 0.08 200.096); /* #164e63 */
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.696 0.142 162.48); /* #10b981 */
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.633 0.179 70.67); /* #d97706 */
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.696 0.142 162.48); /* #10b981 */
+  --chart-1: oklch(0.696 0.142 162.48); /* #10b981 */
+  --chart-2: oklch(0.314 0.08 200.096); /* #164e63 */
+  --chart-3: oklch(0.633 0.179 70.67); /* #d97706 */
+  --chart-4: oklch(0.269 0 0);
+  --chart-5: oklch(0.205 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.696 0.142 162.48); /* #10b981 */
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.696 0.142 162.48); /* #10b981 */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added smooth scrolling and cursor styles */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Added reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Added focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Added Locomotive Scroll styles */
+  html.has-scroll-smooth {
+    overflow: hidden;
+  }
+
+  html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .has-scroll-smooth body {
+    overflow: hidden;
+  }
+
+  .has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+  }
+
+  [data-scroll-direction="horizontal"] {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  [data-scroll-direction="horizontal"].is-revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  [data-scroll] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  [data-scroll].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Enhanced custom cursor styles with better animations */
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    mix-blend-mode: difference;
+  }
+
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(1px);
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+      display: none;
+    }
+  }
+
+  /* Added cursor hover class for elements */
+  .cursor-hover {
+    cursor: none !important;
+  }
+
+  /* Loading screen styles */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .loading-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+    opacity: 0;
+    animation: fadeInOut 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* Added responsive typography */
+  @media (max-width: 640px) {
+    .loading-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Story Timeline specific styles */
+  .story-timeline {
+    position: relative;
+  }
+
+  .story-step {
+    opacity: 1 !important;
+  }
+
+  .story-content {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .story-icon {
+    opacity: 1 !important;
+    transform: rotate(0deg) scale(1) !important;
+  }
+
+  /* Ensure content is visible even if GSAP fails to load */
+  .story-timeline .story-step .story-content,
+  .story-timeline .story-step .story-icon {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
