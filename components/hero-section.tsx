@@ -14,9 +14,9 @@ export default function HeroSection() {
 
   const storyElements = [
     { text: "Hello World", subtitle: "Every journey begins with a single line of code" },
-    { text: "Creative\nDeveloper", subtitle: "Crafting beautiful digital experiences with modern technologies" },
-    { text: "Problem\nSolver", subtitle: "Turning complex challenges into elegant solutions" },
-    { text: "Innovation\nDriven", subtitle: "Building the future, one pixel at a time" },
+    { text: "Creative Developer", subtitle: "Crafting beautiful digital experiences with modern technologies" },
+    { text: "Problem Solver", subtitle: "Turning complex challenges into elegant solutions" },
+    { text: "Innovation Driven", subtitle: "Building the future, one pixel at a time" },
   ]
 
   useEffect(() => {
@@ -247,10 +247,6 @@ export default function HeroSection() {
     >
       <canvas ref={particlesRef} className="absolute inset-0 pointer-events-none" />
 
-      <div
-        ref={backgroundRef}
-        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10"
-      />
 
       <div className="absolute top-20 left-10 w-20 h-20 border-2 border-accent/20 rounded-full animate-pulse" />
       <div className="absolute bottom-32 right-16 w-16 h-16 bg-primary/10 rotate-45 animate-bounce" />
@@ -261,7 +257,7 @@ export default function HeroSection() {
         style={{ animationDuration: "8s" }}
       />
 
-      <div className="text-center max-w-4xl relative z-10">
+      <div className="text-center w-full  pt-72 z-10">
         <div
           ref={codeRef}
           className="bg-gray-900 rounded-lg p-4 mb-8 text-left max-w-md mx-auto font-mono text-sm border border-primary/20"
@@ -286,7 +282,7 @@ export default function HeroSection() {
 
         <h1
           ref={titleRef}
-          className="text-6xl md:text-8xl font-bold text-primary mb-6 leading-tight"
+          className="text-6xl md:text-8xl font-bold text-primary mb-6 leading-tight whitespace-pre-line text-center"
           data-scroll
           data-scroll-speed="0.5"
           data-scroll-delay="0.1"
@@ -294,7 +290,7 @@ export default function HeroSection() {
 
         <p
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed text-center"
           data-scroll
           data-scroll-speed="0.3"
           data-scroll-delay="0.2"
@@ -315,11 +311,11 @@ export default function HeroSection() {
         </button>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
           <div className="w-1 h-3 bg-muted-foreground rounded-full mt-2 animate-pulse" />
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

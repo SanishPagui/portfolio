@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import LoadingScreen from "@/components/loading-screen"
 import CustomCursor from "@/components/custom-cursor"
 import LocomotiveScrollProvider from "@/components/locomotive-scroll-provider"
@@ -14,9 +14,12 @@ import ContactSection from "@/components/contact-section"
 import MobileNavigation from "@/components/mobile-navigation"
 import ScrollProgress from "@/components/scroll-progress"
 import ErrorBoundary from "@/components/error-boundary"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const mainRef = useRef<HTMLElement>(null)
 
   const handleLoadingComplete = () => {
     setIsLoading(false)
@@ -36,11 +39,63 @@ export default function Home() {
 
     document.addEventListener("visibilitychange", handleVisibilityChange)
 
+    // Hide cursor on mobile devices
+    const isMobile = window.innerWidth <= 768
+    const cursor = document.querySelector(".custom-cursor") as HTMLElement
+    if (cursor && isMobile) {
+      cursor.style.display = "none"
+    }
+
     return () => {
       document.body.style.cursor = "auto"
       document.removeEventListener("visibilitychange", handleVisibilityChange)
     }
   }, [])
+  
+  useEffect(() => {
+    if (!isLoading) {
+      // Ensure the DOM is fully ready before initializing GSAP
+      setTimeout(() => {
+        initGSAP()
+      }, 100)
+    }
+
+    return () => {
+      // Clean up ScrollTrigger when component unmounts
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      ScrollTrigger.clearMatchMedia()
+    }
+  }, [isLoading])
+
+  const initGSAP = () => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger)
+    
+    // Force all sections to be visible
+    const sections = document.querySelectorAll('[data-scroll-section]')
+    sections.forEach(section => {
+      const el = section as HTMLElement
+      el.style.visibility = 'visible'
+      el.style.opacity = '1'
+      el.style.display = 'block'
+    })
+    
+    // Force the main container to be visible
+    if (mainRef.current) {
+      mainRef.current.style.visibility = 'visible'
+      mainRef.current.style.opacity = '1'
+    }
+    
+    // Give ScrollTrigger time to initialize properly with multiple refresh attempts
+    setTimeout(() => {
+      ScrollTrigger.refresh(true) // First refresh
+      
+      // Second refresh after a delay
+      setTimeout(() => {
+        ScrollTrigger.refresh(true)
+      }, 500)
+    }, 200)
+  }
 
   return (
     <ErrorBoundary>
@@ -84,30 +139,30 @@ export default function Home() {
           </header>
 
           <LocomotiveScrollProvider>
-            <main className="min-h-screen pt-20">
-              <section id="home" data-scroll-section>
+            <main ref={mainRef} className="min-h-screen main-content" style={{visibility: 'visible', opacity: 1, display: 'block'}}>
+              <section id="home" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <HeroSection />
               </section>
-              <section id="story">
+              <section id="story" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <StoryTimeline />
               </section>
-              <section data-scroll-section>
+              <section id="about" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <AboutSection />
               </section>
-              <div id="skills" data-scroll-section>
+              <div id="skills" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <SkillsConstellation />
               </div>
-              <section data-scroll-section>
+              <section id="projects" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <InteractiveProjectDemo />
               </section>
-              <section data-scroll-section>
+              <section id="projects-list" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <ProjectsSection />
               </section>
-              <section data-scroll-section>
+              <section id="contact" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <ContactSection />
               </section>
 
-              <footer className="bg-muted py-12 px-6" data-scroll-section>
+              <footer className="bg-muted py-12 px-6" data-scroll-section style={{visibility: 'visible', opacity: 1}}>
                 <div className="container mx-auto max-w-6xl">
                   <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="text-center md:text-left">

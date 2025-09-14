@@ -13,35 +13,35 @@ export default function AboutSection() {
 
   const storyMilestones = [
     {
-      year: "2018",
+      year: "2021",
       title: "First Line of Code",
       description: "Started my journey with HTML & CSS, building my first website",
       icon: "💻",
       color: "from-blue-500 to-cyan-500",
     },
     {
-      year: "2019",
+      year: "2022",
       title: "JavaScript Mastery",
       description: "Dove deep into JavaScript and discovered the power of interactivity",
       icon: "⚡",
       color: "from-yellow-500 to-orange-500",
     },
     {
-      year: "2021",
+      year: "2023",
       title: "React Revolution",
       description: "Embraced React and modern frontend development practices",
       icon: "⚛️",
       color: "from-blue-400 to-purple-500",
     },
     {
-      year: "2022",
+      year: "2024",
       title: "Full-Stack Evolution",
       description: "Expanded to backend development with Node.js and databases",
       icon: "🚀",
       color: "from-green-500 to-teal-500",
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Creative Innovation",
       description: "Specializing in animations, 3D experiences, and cutting-edge web tech",
       icon: "✨",
@@ -158,7 +158,7 @@ export default function AboutSection() {
     initGSAP()
   }, [])
 
-  const skills = ["React", "Next.js", "TypeScript", "Node.js", "GSAP", "Tailwind CSS", "MongoDB", "PostgreSQL"]
+  const skills = ["React", "Next.js", "TypeScript", "Node.js", "GSAP", "Tailwind CSS", "Three js", "React Three Fiber", "Framer", "Python", "C++", "C", "PostgreSQL", "MySQL"]
 
   return (
     <section
@@ -173,7 +173,7 @@ export default function AboutSection() {
         data-scroll-speed="-0.5"
       />
 
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10 pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 ref={titleRef} className="text-5xl md:text-6xl font-bold text-card-foreground mb-8">
@@ -246,7 +246,7 @@ export default function AboutSection() {
               <div className="absolute inset-4 bg-background/90 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-background/95">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-2xl font-bold text-primary z-10">AC</span>
+                    <span className="text-2xl font-bold text-primary z-10">SP</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 animate-pulse"></div>
                   </div>
                   <p className="text-muted-foreground">Sanish Pagui</p>

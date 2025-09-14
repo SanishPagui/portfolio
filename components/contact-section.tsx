@@ -100,7 +100,7 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="min-h-screen flex items-center justify-center px-6 bg-card relative overflow-hidden"
+      className="min-h-screen pt-54 flex items-center justify-center px-6 bg-card relative overflow-hidden"
       data-scroll-section
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5" />
@@ -140,7 +140,7 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-colors cursor-hover"
-                placeholder="your.email@example.com"
+                placeholder="your@gmail.com"
               />
             </div>
 
@@ -185,7 +185,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="font-medium text-card-foreground">Email</p>
-                  <p className="text-muted-foreground">hello@example.com</p>
+                  <p className="text-muted-foreground">sanishpagui162@gmail.com</p>
                 </div>
               </div>
 
@@ -194,8 +194,8 @@ export default function ContactSection() {
                   <span className="text-accent font-bold">#</span>
                 </div>
                 <div>
-                  <p className="font-medium text-card-foreground">Social</p>
-                  <p className="text-muted-foreground">@yourhandle</p>
+                  <p className="font-medium text-card-foreground">Instagram</p>
+                  <p className="text-muted-foreground">sanish_pagui</p>
                 </div>
               </div>
 
@@ -205,7 +205,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="font-medium text-card-foreground">Location</p>
-                  <p className="text-muted-foreground">Your City, Country</p>
+                  <p className="text-muted-foreground">Vasco da Gama, India</p>
                 </div>
               </div>
             </div>

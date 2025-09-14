@@ -85,55 +85,20 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description:
-        "A modern e-commerce solution built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.",
-      tech: ["Next.js", "TypeScript", "Stripe", "MongoDB"],
-      image: "/modern-ecommerce-interface.png",
-      link: "#",
-      github: "#",
+      title: "Astro Guide",
+      description: "A webpage which lets you explore about the asteroids and their orbits.",
+      tech: ["Next.js", "TypeScript", "gsap", "shadcn ui"],
+      image: "/astro.png",
+      link: "https://cchack.vercel.app/",
+      github: "https://github.com/SanishPagui/cchack",
     },
     {
-      title: "Task Management App",
-      description:
-        "Collaborative task management application with real-time updates, team collaboration, and advanced filtering.",
-      tech: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-      image: "/task-management-dashboard.png",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Portfolio Website",
-      description:
-        "A stunning portfolio website with smooth animations, custom cursor, and locomotive scroll integration.",
-      tech: ["Next.js", "GSAP", "Locomotive Scroll", "Tailwind"],
-      image: "/portfolio-website-with-animations.jpg",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Real-time weather dashboard with interactive maps, forecasts, and location-based recommendations.",
-      tech: ["React", "D3.js", "Weather API", "Mapbox"],
-      image: "/weather-dashboard-maps.png",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Social Media App",
-      description: "Full-stack social media application with real-time messaging, image sharing, and social features.",
-      tech: ["Next.js", "Supabase", "WebRTC", "Tailwind"],
-      image: "/social-media-app-interface.png",
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Analytics Platform",
-      description: "Business analytics platform with interactive charts, data visualization, and reporting features.",
-      tech: ["React", "Chart.js", "Express", "Redis"],
-      image: "/analytics-dashboard.png",
-      link: "#",
-      github: "#",
+      title: "Portfolio",
+      description: "A webpage which showcases my projects and skills.",
+      tech: ["Next.js", "TypeScript", "gsap"],
+      image: "/portfolio.png",
+      link: "https://portfolio-coral-two-27.vercel.app/",
+      github: "https://github.com/SanishPagui/portfolio",
     },
   ]
 

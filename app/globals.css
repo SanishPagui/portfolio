@@ -1,6 +1,29 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
 
+/* Ensure all content is visible by default */
+[data-scroll-section],
+[data-scroll-container],
+main,
+section,
+div {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity 0.5s ease;
+}
+
+/* Fix for Windows visibility issues */
+body {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+/* Ensure content is not hidden */
+.main-content {
+  display: block !important;
+  visibility: visible !important;
+}
+
 :root {
   /* Updated color tokens to match design brief */
   --background: oklch(1 0 0); /* #ffffff */
