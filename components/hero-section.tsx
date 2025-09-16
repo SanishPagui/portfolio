@@ -40,12 +40,18 @@ export default function HeroSection() {
       const canvas = particlesRef.current
       if (canvas) {
         const ctx = canvas.getContext("2d")
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
+        const resizeCanvas = () => {
+          canvas.width = window.innerWidth
+          canvas.height = window.innerHeight
+        }
+        
+        resizeCanvas()
+        window.addEventListener('resize', resizeCanvas)
 
         const particles: Array<{ x: number; y: number; vx: number; vy: number; size: number }> = []
+        const particleCount = window.innerWidth < 768 ? 25 : 50 // Fewer particles on mobile
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < particleCount; i++) {
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -98,6 +104,11 @@ export default function HeroSection() {
         "-=1.5",
       )
 
+      // Set initial text content before animation
+      if (titleRef.current) {
+        titleRef.current.textContent = storyElements[0].text
+      }
+
       tl.to(
         titleRef.current,
         {
@@ -107,17 +118,6 @@ export default function HeroSection() {
           ease: "power3.out",
         },
         "-=1",
-      ).to(
-        titleRef.current,
-        {
-          text: {
-            value: storyElements[1].text,
-            delimiter: "",
-          },
-          duration: 2,
-          ease: "none",
-        },
-        "-=0.8",
       )
 
       tl.to(
@@ -188,6 +188,7 @@ export default function HeroSection() {
           start: "top top",
           end: "bottom top",
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       })
 
@@ -199,6 +200,7 @@ export default function HeroSection() {
           start: "top top",
           end: "bottom top",
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       })
 
@@ -227,6 +229,7 @@ export default function HeroSection() {
           clearInterval(storyInterval)
           button.removeEventListener("mouseenter", handleMouseEnter)
           button.removeEventListener("mouseleave", handleMouseLeave)
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill())
         }
       }
     }
@@ -242,32 +245,32 @@ export default function HeroSection() {
     <section
       ref={heroRef}
       id="home"
-      className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       data-scroll-section
     >
       <canvas ref={particlesRef} className="absolute inset-0 pointer-events-none" />
 
-
-      <div className="absolute top-20 left-10 w-20 h-20 border-2 border-accent/20 rounded-full animate-pulse" />
-      <div className="absolute bottom-32 right-16 w-16 h-16 bg-primary/10 rotate-45 animate-bounce" />
-      <div className="absolute top-1/3 right-20 w-12 h-12 border-2 border-primary/20 rotate-12" />
-      <div className="absolute top-1/2 left-16 w-8 h-8 bg-accent/20 rounded-full animate-ping" />
+      {/* Floating elements - responsive positioning */}
+      <div className="absolute top-16 sm:top-20 left-4 sm:left-10 w-12 sm:w-16 lg:w-20 h-12 sm:h-16 lg:h-20 border-2 border-accent/20 rounded-full animate-pulse" />
+      <div className="absolute bottom-20 sm:bottom-32 right-8 sm:right-16 w-10 sm:w-12 lg:w-16 h-10 sm:h-12 lg:h-16 bg-primary/10 rotate-45 animate-bounce" />
+      <div className="absolute top-1/4 sm:top-1/3 right-8 sm:right-20 w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 border-2 border-primary/20 rotate-12" />
+      <div className="absolute top-1/2 left-8 sm:left-16 w-6 sm:w-8 h-6 sm:h-8 bg-accent/20 rounded-full animate-ping" />
       <div
-        className="absolute bottom-1/4 left-1/4 w-6 h-6 border border-secondary/30 rotate-45 animate-spin"
+        className="absolute bottom-1/4 left-1/4 w-4 sm:w-6 h-4 sm:h-6 border border-secondary/30 rotate-45 animate-spin"
         style={{ animationDuration: "8s" }}
       />
 
-      <div className="text-center w-full  pt-72 z-10">
+      <div className="text-center w-full max-w-4xl mx-auto pt-16 sm:pt-32 lg:pt-72 z-10">
         <div
           ref={codeRef}
-          className="bg-gray-900 rounded-lg p-4 mb-8 text-left max-w-md mx-auto font-mono text-sm border border-primary/20"
+          className="bg-gray-900 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-left max-w-xs sm:max-w-sm lg:max-w-md mx-auto font-mono text-xs sm:text-sm border border-primary/20"
         >
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          <div className="flex items-center gap-1 sm:gap-2 mb-2">
+            <div className="w-2 sm:w-3 h-2 sm:h-3 bg-red-500 rounded-full"></div>
+            <div className="w-2 sm:w-3 h-2 sm:h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-2 sm:w-3 h-2 sm:h-3 bg-green-500 rounded-full"></div>
           </div>
-          <div className="text-gray-300">
+          <div className="text-gray-300 text-xs sm:text-sm">
             <span className="text-purple-400">const</span> <span className="text-blue-400">developer</span>{" "}
             <span className="text-white">=</span> <span className="text-green-400">"Sanish Pagui"</span>
             <br />
@@ -282,7 +285,7 @@ export default function HeroSection() {
 
         <h1
           ref={titleRef}
-          className="text-6xl md:text-8xl font-bold text-primary mb-6 leading-tight whitespace-pre-line text-center"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-primary mb-4 sm:mb-6 leading-tight whitespace-pre-line text-center px-2"
           data-scroll
           data-scroll-speed="0.5"
           data-scroll-delay="0.1"
@@ -290,7 +293,7 @@ export default function HeroSection() {
 
         <p
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed text-center"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-xl lg:max-w-2xl mx-auto leading-relaxed text-center px-4"
           data-scroll
           data-scroll-speed="0.3"
           data-scroll-delay="0.2"
@@ -301,7 +304,7 @@ export default function HeroSection() {
         <button
           ref={buttonRef}
           onClick={handleScrollToProjects}
-          className="bg-primary text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors cursor-hover relative overflow-hidden group"
+          className="bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary/90 transition-colors cursor-hover relative overflow-hidden group"
           data-scroll
           data-scroll-speed="0.2"
           data-scroll-delay="0.3"
@@ -310,12 +313,6 @@ export default function HeroSection() {
           <span className="relative">Begin the Journey</span>
         </button>
       </div>
-
-      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-muted-foreground rounded-full mt-2 animate-pulse" />
-        </div>
-      </div> */}
     </section>
   )
 }
